@@ -45,6 +45,8 @@ The following example shows what the XML file looks like:
         <assembly fullname="My.Own.Assembly">
                 <type fullname="Foo" preserve="fields">
                         <method name=".ctor" />
+                        <method name="add_MyEvent" />
+                        <method name="remove_MyEvent" />
                 </type>
                 <type fullname="Bar">
                         <method signature="System.Void .ctor(System.String)" />
@@ -64,7 +66,7 @@ IL and does not understand C# properties.
 
 The second section, for `My.Own.Assembly.dll`, will ensure that
 the `Foo` type will preserve all its fields (i.e. the `preserve="fields"` attribute) and all its constructors (i.e. all
-the methods named `.ctor` in IL). The `Bar` type
+the methods named `.ctor` in IL). Similarly as properties, events have to be specified with the add/remove method names. The `Bar` type
 will preserve specific signatures (not names) for one constructor (that
 accepts a single string parameter) and for a specific string field `_blah`.
 The `My.Own.Namespace` namespace will preserve all the types it contains.
